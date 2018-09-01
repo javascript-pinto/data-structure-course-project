@@ -1,3 +1,4 @@
+/* BST */
 svg{
     /*background:gray;*/
     display: block;
@@ -10,7 +11,7 @@ svg{
     stroke-width: 3px;
 }
 
-.node text{ font: 12px sans-serif; }
+.node text{ font: 12px "Inconsolata monospace"; }
 
 .link{
     fill: none;
@@ -28,4 +29,13 @@ svg{
         stroke: rgba(0, 0, 0, 0.1);*/
         /*display: none;*/
 
+}
+
+#my-bst {
+    min-height: 100vh;
+    width: 100%;
+}
+
+.operation{
+    padding: 10%
 }

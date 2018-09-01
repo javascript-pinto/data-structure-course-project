@@ -1,18 +1,145 @@
 <!DOCTYPE html>
-<head>
-	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<title>BST-viz</title>
-	<!-- <link rel="stylesheet" href="css/reset.css" type="text/css"> -->
-    <link rel="stylesheet" href="css/style.css" type="text/css">
 
+<head>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BST-viz</title>
+    <!-- <link rel="stylesheet" href="css/reset.css" type="text/css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/sidebar.css" type="text/css">
+
+    <!-- libraries -->
     <script type="text/javascript" src="js/d3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
     <script type="text/javascript" src="js/my-bst.js"></script>
-    <!-- <script type="text/javascript" src="js/.js"></script> -->
 </head>
 
 <body>
+    <div class="wrapper" id="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>BST Visualization</h3>
+            </div>
+            <p>杨文翔</p>
+            <a href="https://github.com/javascript-pinto/data-structure-course-project" class="blockquote-footer">1651047</a>
+            <hr width="80%">
 
+            <ul class="list-unstyled components">
+                <li>
+                    <div class="form-row align-items-center">
+                        <div class="col-8">
+                            <input type="number" id="v-search" class="form-control" id="search" autocomplete="off" min=0
+                                max=99 value=7>
+                        </div>
+                        <div class="col-4">
+                            <button type="button" class="btn btn-primary" onclick=alert("dooo")>Search</button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-row align-items-center">
+                        <div class="col-8">
+                            <input type="number" id="v-delete" class="form-control" id="search" autocomplete="off" min=0
+                                max=99 value=7>
+                        </div>
+                        <div class="col-4">
+                                <button type="button" class="btn btn-primary" onclick=alert("dooo")>Delete</button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-group ">
+                        <label>Create a new tree from a list of numbers seperated by lines.</label>
+                        <textarea class="form-control" id="new_tree" rows="3"></textarea>
+                        <div align="center">
+                        <button type="button" class="btn btn-primary " onclick=alert("dooo")>Create New Tree</button>
+                    </div>
+                    </div>
+                </li>
+            </ul>
+            <!-- <li>
+                    <a href="#">About</a>
+                </li> -->
+            <!-- <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="#">Page 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Portfolio</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
 
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+                </li>
+                <li>
+                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+                </li>
+            </ul> -->
+        </nav>
+
+        <!-- Page Content  -->
+        <!-- <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+        </div> -->
+        <div id="my-bst"></div>
+    </div>
+    <script type="text/javascript" src="js/my-svg.js"></script>
 </body>
 
 </html>
