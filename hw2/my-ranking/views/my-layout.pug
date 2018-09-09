@@ -1,0 +1,14 @@
+extends ../node_modules/pug-bootstrap/_bootstrap
+append styles
+  // Custom styles for this template
+  link(href='/css/dashboard.css', rel='stylesheet')
+
+block body
+  +navbar-fixed("Olympic Rankings","navbar","inverse")
+    +nav_item("/summary","active") Summary
+    +nav_item("/create") Create
+    +nav_item("/ranking") Rankings
+    +nav_item("/query") Querying
+
+append scripts
+  script(src='/javascripts/active_nav.js')  

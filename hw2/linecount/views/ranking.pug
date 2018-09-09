@@ -1,0 +1,42 @@
+extends my-layout
+
+append body
+    br
+    div(class='col-md-2 col-md-offset-3')                
+        form(role="form")
+            .form-group
+                .radio
+                    label
+                        input#optionsRadios1(type="radio", name="sortBy", value="id")
+                        | id
+                .radio
+                    label
+                        input#optionsRadios2(type="radio", name="sortBy", value="name")
+                        | name
+                .radio
+                    label
+                        input#optionsRadios2(type="radio", name="sortBy", value="score")
+                        | score
+                .radio
+                    label
+                        input#optionsRadios3(type="radio", name="sortBy", value="womanScore")
+                        | Woman Score
+                .radio
+                    label
+                        input#optionsRadios3(type="radio", name="sortBy", value="manScore")
+                        | Man Score
+                button.btn.btn-default(type="submit") Rank
+
+
+    div(class='col-md-4')
+        table.table(class="table-striped")
+            thead
+                tr
+                    each head, i in ["#", "id","Country","Score","Woman Score", "Man Score"]
+                        th #{head}
+            tbody
+                each row, j in countries
+                    tr
+                        td= j + 1
+                        each col, k in row
+                            td #{col}

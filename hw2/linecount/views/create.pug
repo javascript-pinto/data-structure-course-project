@@ -1,0 +1,42 @@
+extends my-layout
+
+append body
+    br
+    .row
+        .col-md-6.col-md-offset-1
+            label Country Name
+            .form-inline
+                form(role='form', method='post')
+                    .form-group
+                        input(type="text", name="addCountryName", class='form-control', placeholder="China")
+                    button.btn.btn-default(type='submit') Add Country
+            <hr>
+
+    .row
+        .col-md-6.col-md-offset-1
+            form(role='form', method='post')
+                .input-group
+                    label Select a Sport
+                    input(type="number", name="sportId", class='form-control', value=0, min=0)
+                .input-group
+                    label Awarded country ID
+                    input(type="number", name="countryId", class='form-control', value=0, min=0)
+
+                button.btn.btn-default(type='submit') Add award
+            <hr>
+
+        .col-md-4
+            table.table(class="table-striped")
+                thead
+                    tr
+                        each head, i in ["#","Sport","Number of Awards"]
+                            th #{head}
+                tbody
+                    each row, j in countries
+                        tr
+                            td= j
+                            each col, k in row
+                              td #{col}
+    
+            form(method='post')
+                button.btn.btn-default(name='clear', type='submit', value='yes') Clear Awards

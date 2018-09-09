@@ -1,0 +1,40 @@
+extends my-layout
+
+append body
+    br
+    div(class='row')
+        dev(class='col-md-4 col-md-offset-4')
+            p We have #{numCountries} countries and #{numGames} games, select the query type and select the index of which you want to see.  
+    br
+
+    div(class='row')
+        div(class='col-md-3 col-md-offset-2')              
+            form(role="form", class='navbar-form navbar-left')
+                label Query target
+                .form-group
+                    .radio
+                        input#optionsRadios1(type="radio", name="type", value="country", checked)
+                        label Country
+                    |
+                    |
+                    .radio
+                        input#optionsRadios1(type="radio", name="type", value="game")
+                        label Game
+                    .input-group
+                        input(type='number', class='form-control', name='index', min=0, placeholder=0)
+                        div(class='input-group-btn')
+                            button.btn.btn-default(type="submit") Query Index
+
+        div(class='col-md-4')
+            table.table(class="table-striped")
+                thead
+                    tr
+                        each head, i in ["#", "Country ID","Country","Score","Man Score", "Woman Score", "Won Game", "Scores from this game"]
+                            th #{head}
+                tbody
+                    each row, j in countries
+                        tr
+                            td= j+1
+                            each col, k in row
+                                td #{col}
+                                

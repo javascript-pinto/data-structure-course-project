@@ -1,0 +1,17 @@
+extends my-layout
+
+append body
+    br
+    div(class='col-md-4 col-md-offset-4')
+        table.table(class="table-striped")
+            thead
+                tr
+                    each head, i in ["#", "id","Country","Score"]
+                        th #{head}
+            tbody
+                each row, j in countries
+                    tr
+                        td= j+1
+                        each col, k in row
+                            td #{col}
+                            
